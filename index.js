@@ -12,11 +12,11 @@ app.listen(PORT, () => {
 });
 
 const todoRoutes = require("./routes/todos");
-app.use("api/v1", todoRoutes);
+app.use("/api/v1", todoRoutes);
 
 const dbConnect = require("./config/database");
 dbConnect();
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Welcome to the Todo App");
 })
